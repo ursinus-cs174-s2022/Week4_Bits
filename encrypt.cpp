@@ -2,13 +2,18 @@
 #include "fileutils.h"
  
 int main(int argc, char** argv) {
-    // TODO: Fill this in
-    // Step 1: Load in file1
-    // Step 2: Load file2
-    // Step 3: Loop through and replace each byte in file1 with
-    //         the XOR of the corresponding byte in file2.  If file2
-    //         reaches the end, loop back to the beginning
-    // Step 4: Write out the resulting XORED file
-    
+    int N, M;
+    unsigned char* s = loadFile(argv[1], &N);
+    unsigned char* t = loadFile(argv[2], &M);
+    int j = 0;
+    for (int i = 0; i < N; i++) {
+        s[i] = s[i] ^ t[j];
+        i++;
+        j++;
+        if (j >= M) {
+            j = 0;
+        }
+    }
+    writeFile(argv[3], s, N);
     return 0;
 }

@@ -14,9 +14,18 @@ char* getBinary(unsigned int num) {
     // TODO: Fill this in, only using bitwise operators
     /**
         Allowed: Binary AND (&), Binary OR (|), Binary XOR (^), 
-        Left Binary Shift (<<), and Unsigned Right Binary Shift (>>>)
+        Left Binary Shift (<<), and Unsigned Right Binary Shift (>>)
         NOT Allowed: +, -, /, *, %
     */
+    // Solution courtesy of Breeze Tucker
+    for(int i = 0; i < 32; i++){
+        if((num &(((unsigned)1 << 31) >> i)) > 0){
+            bits[i] = '1'; 
+        }
+        else{
+            bits[i] = '0';
+        }
+    }
     bits[32] = '\0';
     return bits;
 }

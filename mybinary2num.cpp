@@ -10,8 +10,6 @@
  *               "num" in binary
  */
 unsigned int getNum(char* binary) {
-    unsigned int pow = 1;
-    unsigned int ret = 0;
     // Move string forward until it reaches the end
     int idx = 0;
     while(binary[idx] != '\0') {
@@ -22,9 +20,17 @@ unsigned int getNum(char* binary) {
     // TODO: Fill this in
     /**
         Allowed: Binary AND (&), Binary OR (|), Binary XOR (^), 
-        Left Binary Shift (<<), and Unsigned Right Binary Shift (>>>)
+        Left Binary Shift (<<), and Unsigned Right Binary Shift (>>)
         NOT Allowed: +, -, /, *, %
     */
+    unsigned int pow = 1;
+    unsigned int ret = 0;
+    for (int i = idx; i >= 0; i--) {
+        if (binary[i] == '1') {
+            ret = ret | pow;
+        }
+        pow = pow << 1;
+    }
     return ret;
 }
 
