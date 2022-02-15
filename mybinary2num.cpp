@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * @brief Use the textbook algorithm to convert a binary
+ * @brief Use bitwise operators to convert a binary
  * number to a string
  * 
  * @param num A 32-bit unsigned integer
